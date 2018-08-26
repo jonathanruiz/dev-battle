@@ -1,13 +1,13 @@
-const user1 = document.getElementById("user1");
-const user2 = document.getElementById("user2");
+const firstDev = document.getElementById("firstDev");
+const secondDev = document.getElementById("secondDev");
 
 // Event Listeners
-user1.addEventListener("click", () => {
-  getUser("output1");
+firstDev.addEventListener("click", () => {
+  getUser("firstOutput");
 });
 
-user2.addEventListener("click", () => {
-  getUser("output2");
+secondDev.addEventListener("click", () => {
+  getUser("secondOutput");
 });
 
 // Get a random number from 1 to 10,000,000
