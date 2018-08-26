@@ -1,13 +1,23 @@
 const user1 = document.getElementById("user1");
+const user2 = document.getElementById("user2");
 
-user1.addEventListener("click", getUser);
+// Event Listeners
+user1.addEventListener("click", () => {
+  getUser("output1");
+});
 
+user2.addEventListener("click", () => {
+  getUser("output2");
+});
+
+// Get a random number from 1 to 10,000,000
 function getRandomID() {
   let number;
   return (number = Math.floor(Math.random() * 10000000) + 1);
 }
 
-function getUser() {
+// Gets the user ID and image
+function getUser(outputId) {
   let idNumber = getRandomID();
 
   fetch(
@@ -20,6 +30,6 @@ function getUser() {
       <img src="${data.avatar_url}">
       <h3>${data.login}</h3>
       `;
-      document.getElementById("output").innerHTML = output;
+      document.getElementById(outputId).innerHTML = output;
     });
 }
