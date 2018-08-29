@@ -20,9 +20,7 @@ function getRandomID() {
 function getUser(outputId) {
   let idNumber = getRandomID();
 
-  fetch(
-    `https://api.github.com/user/${idNumber}?client_id=0f13fc1d496482a413e3&client_secret=17e21574dcae631ce56d13c7b81bcd88848285c0`
-  )
+  fetch(`https://api.github.com/user/${idNumber}?client_id=&client_secret=`)
     .then(res => res.json())
     .then(data => {
       let output = ``;
