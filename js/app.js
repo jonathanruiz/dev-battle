@@ -47,7 +47,11 @@ function getUser(outputId, user) {
         return res.json();
       }
     })
-    .catch(err => console.log(err))
+    .catch(() => {
+      // Restart the function if there was an error
+      console.log("Fetch not complete, restarting function");
+      getUser(outputId, user);
+    })
     .then(data => {
       let output = ``;
 
@@ -75,3 +79,7 @@ function battle() {
   } else {
   }
 }
+
+// Fetch profiles when the page loads
+getUser("firstOutput", firstUser);
+getUser("secondOutput", secondUser);

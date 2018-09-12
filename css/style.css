@@ -2,7 +2,7 @@
   width: 200px;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 600px) {
   .user img {
     width: 100px;
   }
