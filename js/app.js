@@ -1,14 +1,23 @@
 const firstDev = document.getElementById("firstDev");
 const secondDev = document.getElementById("secondDev");
+let firstUser = {
+  login: "",
+  repos: ""
+};
+
+let secondUser = {
+  login: "",
+  repos: ""
+};
 const api = "https://api.github.com/user";
 
 // Event Listeners
 firstDev.addEventListener("click", () => {
-  getUser("firstOutput");
+  getUser("firstOutput", firstUser);
 });
 
 secondDev.addEventListener("click", () => {
-  getUser("secondOutput");
+  getUser("secondOutput", secondUser);
 });
 
 // Get a random number from 1 to 10,000,000
@@ -18,7 +27,7 @@ function getRandomID() {
 }
 
 // Gets the user ID and image
-function getUser(outputId) {
+function getUser(outputId, user) {
   let idNumber = getRandomID();
 
   // Use this in the commandline to see how many requests I have left over.
@@ -36,6 +45,13 @@ function getUser(outputId) {
     .catch(err => console.log(err))
     .then(data => {
       let output = ``;
+
+      // Insert data into objects
+      user.login = data.login;
+      user.repos = data.public_repos;
+      console.log(user);
+
+      // Display the output of the user
       output += `
       <img src="${data.avatar_url}">
       <h3>${data.login}</h3>
@@ -43,3 +59,5 @@ function getUser(outputId) {
       document.getElementById(outputId).innerHTML = output;
     });
 }
+
+function battle() {}
