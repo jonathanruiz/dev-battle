@@ -58,7 +58,7 @@ function getUser(outputId, user) {
 
       // Display the output of the user
       output += `
-      <img src="${data.avatar_url}">
+      <img src="${data.avatar_url}" class="z-depth-4">
       <h3>${data.login}</h3>
       `;
       document.getElementById(outputId).innerHTML = output;
@@ -69,7 +69,7 @@ function battle() {
   if (firstUser.repos > secondUser.repos) {
     console.log(`${firstUser.login} won!`);
   } else if (firstUser.repos < secondUser.repos) {
-    console.log(`${secondUser} won!`);
+    console.log(`${secondUser.login} won!`);
   } else if (firstUser.repos == secondUser.repos) {
     console.log(`It was a tie!`);
   } else {
