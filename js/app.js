@@ -1,5 +1,6 @@
 const firstDev = document.getElementById("firstDev");
 const secondDev = document.getElementById("secondDev");
+const battleBtn = document.getElementById("battleBtn");
 let firstUser = {
   login: "",
   repos: ""
@@ -18,6 +19,10 @@ firstDev.addEventListener("click", () => {
 
 secondDev.addEventListener("click", () => {
   getUser("secondOutput", secondUser);
+});
+
+battleBtn.addEventListener("click", () => {
+  battle();
 });
 
 // Get a random number from 1 to 10,000,000
@@ -60,4 +65,13 @@ function getUser(outputId, user) {
     });
 }
 
-function battle() {}
+function battle() {
+  if (firstUser.repos > secondUser.repos) {
+    console.log(`${firstUser.login} won!`);
+  } else if (firstUser.repos < secondUser.repos) {
+    console.log(`${secondUser} won!`);
+  } else if (firstUser.repos == secondUser.repos) {
+    console.log(`It was a tie!`);
+  } else {
+  }
+}
