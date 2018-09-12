@@ -1,5 +1,6 @@
 const firstDev = document.getElementById("firstDev");
 const secondDev = document.getElementById("secondDev");
+const api = "https://api.github.com/user";
 
 // Event Listeners
 firstDev.addEventListener("click", () => {
@@ -21,13 +22,9 @@ function getUser(outputId) {
   let idNumber = getRandomID();
 
   // Use this in the commandline to see how many requests I have left over.
-  // curl - H "Authorization: token 7c5cc90e9e7eb48e6b486b7276fb8d5b37a1b553" - X GET https://api.github.com/rate_limit
+  // curl - H "Authorization: token <YOUR-TOKEN-HERE>" - X GET https://api.github.com/rate_limit
 
-  fetch(`https://api.github.com/user/${idNumber}`, {
-    headers: {
-      Authorization: "token 7c5cc90e9e7eb48e6b486b7276fb8d5b37a1b553" // This is for the OAuth token
-    }
-  })
+  fetch(`${api}/${idNumber}`)
     .then(res => {
       // Check if the app got the "OK"
       if (res.status !== 200) {
