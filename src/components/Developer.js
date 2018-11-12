@@ -7,7 +7,7 @@ class Developer extends Component {
     this.state = {
       image: "https://via.placeholder.com/300",
       name: "Dev",
-      extra: <Button>Click here</Button>
+      extra: <Button>Refresh</Button>
     };
   }
   render() {

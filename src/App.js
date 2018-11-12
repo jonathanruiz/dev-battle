@@ -4,6 +4,7 @@ import Developer from "./components/Developer";
 import "./App.scss";
 
 class App extends Component {
+  state = {};
   render() {
     return (
       <div className="App">
