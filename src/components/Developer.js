@@ -6,10 +6,14 @@ class Developer extends Component {
     super(props);
     this.state = {
       image: "https://via.placeholder.com/300",
-      name: "Dev",
-      extra: <Button>Refresh</Button>
+      name: "Dev"
     };
   }
+
+  handleClick = () => {
+    this.props.getUser();
+  };
+
   render() {
     return (
       <div className="developer">
@@ -18,7 +22,7 @@ class Developer extends Component {
           image={this.state.image}
           header={this.state.name}
           description="Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat."
-          extra={this.state.extra}
+          extra={<Button onClick={this.handleClick}>Refresh</Button>}
         />
       </div>
     );
